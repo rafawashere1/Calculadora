@@ -12,7 +12,7 @@
                 Console.WriteLine(">> Digite 2 para subtrair");
                 Console.WriteLine(">> Digite 3 para multiplicar");
                 Console.WriteLine(">> Digite 4 para dividir");
-                Console.WriteLine(">> Digite 5 para dividir");
+                Console.WriteLine(">> Digite 5 para criar uma tabuada");
                 Console.WriteLine(">> Digite sair para fechar a calculadora");
 
                 string operacao = Console.ReadLine().ToLower();
@@ -23,7 +23,7 @@
                     Console.ReadLine();
                     continue;
                 }
-                
+
                 if (operacao == "sair")
                 {
                     Console.WriteLine(">> Fechando a calculadora.");
