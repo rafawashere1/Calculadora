@@ -53,76 +53,152 @@
                 }
 
                 decimal resultado = 0;
+                decimal primeiroNumero = 0;
+                decimal segundoNumero = 0;
 
-                if (operacao == "1")
+                switch (operacao)
                 {
-                    Console.Clear();
-                    Console.WriteLine("---------- Adição ---------");
-                    Console.WriteLine();
-                    Console.Write(">> Digite o primeiro número: ");
+                    case "1":
+                        Console.Clear();
+                        Console.WriteLine("---------- Adição ---------");
+                        Console.WriteLine();
+                        Console.Write(">> Digite o primeiro número: ");
 
-                    decimal primeiroNumero = Convert.ToDecimal(Console.ReadLine());
+                        primeiroNumero = Convert.ToDecimal(Console.ReadLine());
 
-                    Console.Write(">> Digite o segundo número: ");
+                        Console.Write(">> Digite o segundo número: ");
 
-                    decimal segundoNumero = Convert.ToDecimal(Console.ReadLine());
-
-                    resultado = primeiroNumero + segundoNumero;
-                }
-
-                else if (operacao == "2")
-                {
-                    Console.Clear();
-                    Console.WriteLine("---------- Subtração ---------");
-                    Console.WriteLine();
-                    Console.Write(">> Digite o primeiro número: ");
-
-                    decimal primeiroNumero = Convert.ToDecimal(Console.ReadLine());
-
-                    Console.Write(">> Digite o segundo número: ");
-
-                    decimal segundoNumero = Convert.ToDecimal(Console.ReadLine());
-
-                    resultado = primeiroNumero - segundoNumero;
-                }
-
-                else if (operacao == "3")
-                {
-                    Console.Clear();
-                    Console.WriteLine("---------- Multiplicação ---------");
-                    Console.WriteLine();
-                    Console.Write(">> Digite o primeiro número: ");
-
-                    decimal primeiroNumero = Convert.ToDecimal(Console.ReadLine());
-
-                    Console.Write(">> Digite o segundo número: ");
-
-                    decimal segundoNumero = Convert.ToDecimal(Console.ReadLine());
-
-                    resultado = primeiroNumero * segundoNumero;
-                }
-
-                else if (operacao == "4")
-                {
-                    Console.Clear();
-                    Console.WriteLine("---------- Divisão ---------");
-                    Console.WriteLine();
-                    Console.Write(">> Digite o primeiro número: ");
-
-                    decimal primeiroNumero = Convert.ToDecimal(Console.ReadLine());
-
-                    Console.Write(">> Digite o segundo número: ");
-
-                    decimal segundoNumero = Convert.ToDecimal(Console.ReadLine());
-
-                    while (segundoNumero == 0)
-                    {
-                        Console.Write(">> Segundo número não pode ser 0, digite outro: ");
                         segundoNumero = Convert.ToDecimal(Console.ReadLine());
-                    }
 
-                    resultado = primeiroNumero / segundoNumero;
+                        resultado = primeiroNumero + segundoNumero;
+                        break;
+
+                    case "2":
+                        Console.Clear();
+                        Console.WriteLine("---------- Subtração ---------");
+                        Console.WriteLine();
+                        Console.Write(">> Digite o primeiro número: ");
+
+                        primeiroNumero = Convert.ToDecimal(Console.ReadLine());
+
+                        Console.Write(">> Digite o segundo número: ");
+
+                        segundoNumero = Convert.ToDecimal(Console.ReadLine());
+
+                        resultado = primeiroNumero - segundoNumero;
+                        break;
+                   
+                    case "3":
+                        Console.Clear();
+                        Console.WriteLine("---------- Multiplicação ---------");
+                        Console.WriteLine();
+                        Console.Write(">> Digite o primeiro número: ");
+
+                        primeiroNumero = Convert.ToDecimal(Console.ReadLine());
+
+                        Console.Write(">> Digite o segundo número: ");
+
+                        segundoNumero = Convert.ToDecimal(Console.ReadLine());
+
+                        resultado = primeiroNumero * segundoNumero;
+                        break;
+                   
+                    case "4":
+                        Console.Clear();
+                        Console.WriteLine("---------- Divisão ---------");
+                        Console.WriteLine();
+                        Console.Write(">> Digite o primeiro número: ");
+
+                        primeiroNumero = Convert.ToDecimal(Console.ReadLine());
+
+                        Console.Write(">> Digite o segundo número: ");
+
+                        segundoNumero = Convert.ToDecimal(Console.ReadLine());
+
+                        while (segundoNumero == 0)
+                        {
+                            Console.Write(">> Segundo número não pode ser 0, digite outro: ");
+                            segundoNumero = Convert.ToDecimal(Console.ReadLine());
+                        }
+
+                        resultado = primeiroNumero / segundoNumero;
+                        break;
+
+                    default:
+                        break;
                 }
+                
+                #region if-else 
+                //if (operacao == "1")
+                //{
+                //    Console.Clear();
+                //    Console.WriteLine("---------- Adição ---------");
+                //    Console.WriteLine();
+                //    Console.Write(">> Digite o primeiro número: ");
+
+                //    decimal primeiroNumero = Convert.ToDecimal(Console.ReadLine());
+
+                //    Console.Write(">> Digite o segundo número: ");
+
+                //    decimal segundoNumero = Convert.ToDecimal(Console.ReadLine());
+
+                //    resultado = primeiroNumero + segundoNumero;
+                //}
+
+                //else if (operacao == "2")
+                //{
+                //    Console.Clear();
+                //    Console.WriteLine("---------- Subtração ---------");
+                //    Console.WriteLine();
+                //    Console.Write(">> Digite o primeiro número: ");
+
+                //    decimal primeiroNumero = Convert.ToDecimal(Console.ReadLine());
+
+                //    Console.Write(">> Digite o segundo número: ");
+
+                //    decimal segundoNumero = Convert.ToDecimal(Console.ReadLine());
+
+                //    resultado = primeiroNumero - segundoNumero;
+                //}
+
+                //else if (operacao == "3")
+                //{
+                //    Console.Clear();
+                //    Console.WriteLine("---------- Multiplicação ---------");
+                //    Console.WriteLine();
+                //    Console.Write(">> Digite o primeiro número: ");
+
+                //    decimal primeiroNumero = Convert.ToDecimal(Console.ReadLine());
+
+                //    Console.Write(">> Digite o segundo número: ");
+
+                //    decimal segundoNumero = Convert.ToDecimal(Console.ReadLine());
+
+                //    resultado = primeiroNumero * segundoNumero;
+                //}
+
+                //else if (operacao == "4")
+                //{
+                //    Console.Clear();
+                //    Console.WriteLine("---------- Divisão ---------");
+                //    Console.WriteLine();
+                //    Console.Write(">> Digite o primeiro número: ");
+
+                //    decimal primeiroNumero = Convert.ToDecimal(Console.ReadLine());
+
+                //    Console.Write(">> Digite o segundo número: ");
+
+                //    decimal segundoNumero = Convert.ToDecimal(Console.ReadLine());
+
+                //    while (segundoNumero == 0)
+                //    {
+                //        Console.Write(">> Segundo número não pode ser 0, digite outro: ");
+                //        segundoNumero = Convert.ToDecimal(Console.ReadLine());
+                //    }
+
+                //    resultado = primeiroNumero / segundoNumero;
+                //}
+                #endregion
 
                 decimal resultadoFormatado = Math.Round(resultado, 2);
                 Console.WriteLine();
@@ -132,6 +208,7 @@
                 Console.ReadLine();
             }
             while (true);
+
         }
     }
 }
