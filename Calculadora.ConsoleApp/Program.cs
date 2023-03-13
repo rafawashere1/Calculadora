@@ -4,8 +4,13 @@
     {
         static void Main(string[] args)
         {
+            string[] descricaoOperacoes = new string[100];
+            int numeroOperacoes = 0;
+
+
             do
             {
+
                 Console.Clear();
                 Console.WriteLine("--------- Calculadora Top 2023 ---------");
                 Console.WriteLine(">> Digite 1 para somar");
@@ -13,14 +18,15 @@
                 Console.WriteLine(">> Digite 3 para multiplicar");
                 Console.WriteLine(">> Digite 4 para dividir");
                 Console.WriteLine(">> Digite 5 para criar uma tabuada");
+                Console.WriteLine(">> Digite 6 para ver o histórico de operações");
                 Console.WriteLine(">> Digite sair para fechar a calculadora");
 
                 string operacao = Console.ReadLine().ToLower();
 
-                if (operacao != "1" && operacao != "2" && operacao != "3" && operacao != "4" && operacao != "5" && operacao != "sair")
+                if (operacao != "1" && operacao != "2" && operacao != "3" && operacao != "4" && operacao != "5" && operacao != "6" && operacao != "sair")
                 {
                     Console.WriteLine(">> Comando inválido, pressione enter para voltar ao menu");
-                    Console.ReadLine();
+                    Console.ReadKey();
                     continue;
                 }
 
@@ -43,18 +49,26 @@
 
                     for (int i = 1; i <= 10; i++)
                     {
+                        int resto = i % 2;
+                        if (resto == 0)
+                            Console.BackgroundColor = ConsoleColor.Red;
+                        else
+                            Console.BackgroundColor = ConsoleColor.White; // Tabuada colorada, nada de rubro-negro xD
+
                         int resultadoMultiplicacao = tabuada * i;
                         Console.WriteLine($">> {tabuada} x {i} = {resultadoMultiplicacao}");
                     }
+                    Console.ResetColor();
                     Console.WriteLine();
                     Console.WriteLine(">> Pressione enter para voltar ao menu.");
-                    Console.ReadLine();
+                    Console.ReadKey();
                     continue;
                 }
 
                 decimal resultado = 0;
                 decimal primeiroNumero = 0;
                 decimal segundoNumero = 0;
+                decimal resultadoFormatado = 0;
 
                 switch (operacao)
                 {
@@ -71,6 +85,10 @@
                         segundoNumero = Convert.ToDecimal(Console.ReadLine());
 
                         resultado = primeiroNumero + segundoNumero;
+                        resultadoFormatado = Math.Round(resultado, 2);
+                        Console.WriteLine();
+                        Console.WriteLine(">> O resultado é: " + resultadoFormatado);
+                        numeroOperacoes++;
                         break;
 
                     case "2":
@@ -86,8 +104,12 @@
                         segundoNumero = Convert.ToDecimal(Console.ReadLine());
 
                         resultado = primeiroNumero - segundoNumero;
+                        resultadoFormatado = Math.Round(resultado, 2);
+                        Console.WriteLine();
+                        Console.WriteLine(">> O resultado é: " + resultadoFormatado);
+                        numeroOperacoes++;
                         break;
-                   
+
                     case "3":
                         Console.Clear();
                         Console.WriteLine("---------- Multiplicação ---------");
@@ -101,8 +123,12 @@
                         segundoNumero = Convert.ToDecimal(Console.ReadLine());
 
                         resultado = primeiroNumero * segundoNumero;
+                        resultadoFormatado = Math.Round(resultado, 2);
+                        Console.WriteLine();
+                        Console.WriteLine(">> O resultado é: " + resultadoFormatado);
+                        numeroOperacoes++;
                         break;
-                   
+
                     case "4":
                         Console.Clear();
                         Console.WriteLine("---------- Divisão ---------");
@@ -122,12 +148,38 @@
                         }
 
                         resultado = primeiroNumero / segundoNumero;
+                        resultadoFormatado = Math.Round(resultado, 2);
+                        Console.WriteLine();
+                        Console.WriteLine(">> O resultado é: " + resultadoFormatado);
+                        numeroOperacoes++;
                         break;
+
+                    case "6":
+                        Console.Clear();
+                        Console.WriteLine("---------- Histórico de Operações ---------");
+                        Console.WriteLine();
+                        
+                        if (numeroOperacoes == 0)
+                        {
+                            Console.WriteLine(">> Nenhuma operação realizada.");
+                        }
+                        else
+                        {
+                            for (int i = 0; i < descricaoOperacoes.Length; i++)
+                            {
+                                if (descricaoOperacoes[i] != null)
+                                {
+                                    Console.WriteLine(descricaoOperacoes[i]);
+                                }
+                            }
+                        }
+                        break;
+
 
                     default:
                         break;
                 }
-                
+
                 #region if-else 
                 //if (operacao == "1")
                 //{
@@ -200,12 +252,55 @@
                 //}
                 #endregion
 
-                decimal resultadoFormatado = Math.Round(resultado, 2);
-                Console.WriteLine();
-                Console.WriteLine(">> O resultado é: " + resultadoFormatado);
+                string sinalOperacao = "";
+
+                switch (operacao)
+                {
+                    case "1":
+                        sinalOperacao = "+";
+                        break;
+
+                    case "2":
+                        sinalOperacao = "-";
+                        break;
+
+                    case "3":
+                        sinalOperacao = "x";
+                        break;
+
+                    case "4":
+                        sinalOperacao = "/";
+                        break;
+
+                    default:
+                        break;
+                }
+
+                switch (operacao)
+                {
+                    case "1":
+                        descricaoOperacoes[numeroOperacoes] = $"{primeiroNumero} {sinalOperacao} {segundoNumero} = {resultadoFormatado}";
+                        break;
+
+                    case "2":
+                        descricaoOperacoes[numeroOperacoes] = $"{primeiroNumero} {sinalOperacao} {segundoNumero} = {resultadoFormatado}";
+                        break;
+
+                    case "3":
+                        descricaoOperacoes[numeroOperacoes] = $"{primeiroNumero} {sinalOperacao} {segundoNumero} = {resultadoFormatado}";
+                        break;
+
+                    case "4":
+                        descricaoOperacoes[numeroOperacoes] = $"{primeiroNumero} {sinalOperacao} {segundoNumero} = {resultadoFormatado}";
+                        break;
+
+                    default:
+                        break;
+                }
                 Console.WriteLine();
                 Console.WriteLine(">> Pressione enter para voltar ao menu.");
-                Console.ReadLine();
+                Console.ReadKey();
+
             }
             while (true);
 
